@@ -1,0 +1,282 @@
+:root {
+  --bg: #0b0f14;
+  --panel: #12181f;
+  --border: #232c37;
+  --text: #e8eef4;
+  --muted: #8a97a6;
+  --accent: #5eead4; /* spectral teal - mint action */
+  --accent-2: #a78bfa; /* violet - transfer action */
+  --danger: #f87171;
+  --mono: "SF Mono", "Fira Code", Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(94, 234, 212, 0.08), transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(167, 139, 250, 0.06), transparent 45%);
+  background-attachment: fixed;
+}
+
+main {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 56px 20px 80px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(94, 234, 212, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(94, 234, 212, 0);
+  }
+}
+
+header.page-header {
+  margin-bottom: 32px;
+  animation: fadeInUp 0.5s ease both;
+}
+
+header.page-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  letter-spacing: 0.2px;
+  background: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    #93f5e6 25%,
+    var(--accent-2) 50%,
+    var(--accent) 75%,
+    #93f5e6 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+  display: inline-block;
+}
+
+header.page-header p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.45s ease both;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: rgba(94, 234, 212, 0.25);
+  box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.5);
+}
+
+.card:nth-of-type(2) {
+  animation-delay: 0.08s;
+}
+
+.card:nth-of-type(3) {
+  animation-delay: 0.16s;
+}
+
+.card h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin: 0 0 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.file-drop {
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 22px;
+  margin-bottom: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 14px;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+}
+
+.file-drop:hover {
+  border-color: var(--accent);
+  background: rgba(94, 234, 212, 0.04);
+  transform: translateY(-1px);
+}
+
+.file-drop input {
+  display: none;
+}
+
+.file-drop .filename {
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.08s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+button.primary {
+  background: linear-gradient(135deg, var(--accent), #38bfa1);
+  color: #04231d;
+}
+
+button.secondary {
+  background: linear-gradient(135deg, var(--accent-2), #8b6ef0);
+  color: #1e1533;
+}
+
+button:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px -6px rgba(94, 234, 212, 0.35);
+}
+
+button.secondary:not(:disabled):hover {
+  box-shadow: 0 6px 18px -6px rgba(167, 139, 250, 0.4);
+}
+
+button.loading {
+  animation: pulseGlow 1.6s ease-in-out infinite;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  animation: fadeInUp 0.3s ease both;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row .label {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.row .value {
+  font-family: var(--mono);
+  word-break: break-all;
+  text-align: right;
+}
+
+.pill {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(94, 234, 212, 0.12);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-left: auto;
+  animation: fadeInUp 0.3s ease both;
+}
+
+.pill.transferred {
+  background: rgba(167, 139, 250, 0.14);
+  color: var(--accent-2);
+}
+
+a.explorer-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.15s ease;
+}
+
+a.explorer-link:hover {
+  color: #93f5e6;
+  text-decoration: underline;
+}
+
+.error-banner {
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  color: var(--danger);
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.3s ease both;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
