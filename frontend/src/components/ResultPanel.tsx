@@ -19,7 +19,7 @@ export default function ResultPanel({
     <>
       <div className="card">
         <h2>
-          2. Fingerprint & Mint Result <span className="pill">minted</span>
+          3. Fingerprint & Mint Result <span className="pill">minted</span>
         </h2>
 
         <div className="row">
@@ -49,7 +49,7 @@ export default function ResultPanel({
 
       <div className="card">
         <h2>
-          3. Transfer NFT (Wallet A → Wallet B)
+          4. Transfer NFT (Wallet A → Wallet B)
           {transferResult && (
             <span className="pill transferred">transferred</span>
           )}

@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
+from app.routes.nft_v2 import router as nft_v2_router
 from app.routes.nft import router as nft_router
 
 app = FastAPI(title="Gemstone NFT API")
+app.include_router(nft_v2_router)
 
 # Allow the Next.js frontend to call this API.
 # FRONTEND_ORIGIN is set in Railway's env vars to your Vercel URL in production;

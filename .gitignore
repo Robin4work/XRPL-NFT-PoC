@@ -1,11 +1,27 @@
-# Python
-backend/venv/
-backend/__pycache__/
-backend/**/__pycache__/
-backend/.env
-backend/temp/*.csv
+# Runtime artifacts
+jobs/
+temp/
+playground/
 
-# Node / Next.js
-frontend/node_modules/
+# Python
+__pycache__/
+*.pyc
+
+# Environment
+.env
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Next.js
 frontend/.next/
-frontend/.env.local
+frontend/node_modules/
+
+# Logs
+*.log
